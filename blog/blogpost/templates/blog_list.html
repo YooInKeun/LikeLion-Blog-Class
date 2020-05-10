@@ -1,9 +1,9 @@
-{% extends 'base.html' %}
+{% extends 'base.html' %} {% block content %} {% for blog in blogs %}
 
-{% block contents %}
-{% for blog in blogs %}
-  <h3>제목: {{ blog.title }}</h3>
-  <h3>내용: {{ blog.content }}</h3>
-  <hr>
-{% endfor %}
-{% endblock %}
+<div class="container">
+  <h3>Title: {{ blog.title }}</h3>
+  <h4>Content: {{ blog.content }}</h4>
+  <hr />
+</div>
+
+{% endfor %} {% endblock %}

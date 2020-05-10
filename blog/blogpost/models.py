@@ -1,9 +1,12 @@
 from django.db import models
+from django.conf import settings
+from django.utils import timezone
+
 
 class Blog(models.Model):
-    title = models.CharField(max_length= 200)
+    title = models.CharField(max_length=200)
     content = models.TextField()
-    pub_date = models.DateTimeField('date published')
+    created_date = models.DateTimeField(default=timezone.now)
 
     def __str__(self):
         return self.title
