@@ -1,8 +1,9 @@
 {% extends 'base.html' %} {% block content %} {% for blog in blogs %}
 
 <div class="container">
-  <h3>Title: {{ blog.title }}</h3>
-  <h4>Content: {{ blog.content }}</h4>
+  <a href="{% url 'read_blog_one' blog.id %}"
+    ><h3>Title: {{ blog.title }}</h3></a
+  >
   <hr />
 </div>
 

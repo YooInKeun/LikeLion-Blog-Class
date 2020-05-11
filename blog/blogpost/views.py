@@ -14,3 +14,14 @@ def create_blog(request):
     blog.content = request.POST['content']
     blog.save()
     return redirect('read_blog_list')
+
+def read_blog_one(request, pk):
+    blog = Blog.objects.get(pk=pk)
+    return render(request, 'blog_detail.html', {'blog' : blog})
+
+def update_blog(request, pk):
+    blog = Blog.objects.get(pk=pk)
+    blog.title = request.POST['title']
+    blog.content = request.POST['content']
+    blog.save()
+    return redirect('read_blog_list')
