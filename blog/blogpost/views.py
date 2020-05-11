@@ -25,3 +25,8 @@ def update_blog(request, pk):
     blog.content = request.POST['content']
     blog.save()
     return redirect('read_blog_list')
+
+def delete_blog(request, pk):
+    blog = Blog.objects.get(pk=pk)
+    blog.delete()
+    return redirect('read_blog_list')
