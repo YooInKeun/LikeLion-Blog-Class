@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .models import Blog
+from .models import *
 
 def read_blog_list(request):
     blogs = Blog.objects.all()
@@ -13,6 +13,11 @@ def create_blog(request):
     blog.title = request.POST['title']
     blog.content = request.POST['content']
     blog.save()
+
+    json = {"Mon" : [1, 0, 1, 1, 1], "Tues" : [1, 0, 0, 1, 1]}
+    time_table = TimeTable2()
+    time_table.the_json = json
+    time_table.save()
     return redirect('read_blog_list')
 
 def read_blog_one(request, pk):
